@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0621.1547                               -->
+<workbook source-build='2019.2.1 (20192.19.0621.1547)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='stations' inline='true' name='federated.0ayu0080tcjub613olkjp0njmv0h' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='stations' name='textscan.1d50dor09phxdu13i38na1e5awtr'>
+            <connection class='textscan' directory='/Users/HIERARCHY/GTATL201902DATA3_MATPLOTLIB/20-Tableau/Homework/POTENTIAL SOLVES/Citi-Bike-Analytics-master/csv' filename='stations2.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='stations2' name='textscan.1eledqa1nbri991fphmli0oyaeqh'>
+            <connection class='textscan' directory='/Users/HIERARCHY/GTATL201902DATA3_MATPLOTLIB/20-Tableau/Homework/POTENTIAL SOLVES/Citi-Bike-Analytics-master/csv' filename='totaltrips.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='stations3' name='textscan.1pn6ps30n7v32x199lvqd10exlkb'>
+            <connection class='textscan' directory='/Users/HIERARCHY/GTATL201902DATA3_MATPLOTLIB/20-Tableau/Homework/POTENTIAL SOLVES/Citi-Bike-Analytics-master/csv' filename='stations.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[stations.csv].[stationid]' />
+              <expression op='[stations2.csv].[stationid]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1d50dor09phxdu13i38na1e5awtr' name='stations.csv' table='[stations#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='stationid' ordinal='0' />
+              <column datatype='integer' name='totalstartstation' ordinal='1' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1eledqa1nbri991fphmli0oyaeqh' name='stations2.csv' table='[stations2#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='stationid' ordinal='0' />
+              <column datatype='integer' name='totalendstation' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[stationid (stations2.csv)]' value='[stations2.csv].[stationid]' />
+          <map key='[stationid]' value='[stations.csv].[stationid]' />
+          <map key='[totalendstation]' value='[stations2.csv].[totalendstation]' />
+          <map key='[totalstartstation]' value='[stations.csv].[totalstartstation]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[stations.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stationid</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[stationid]</local-name>
+            <parent-name>[stations.csv]</parent-name>
+            <remote-alias>stationid</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalstartstation</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalstartstation]</local-name>
+            <parent-name>[stations.csv]</parent-name>
+            <remote-alias>totalstartstation</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[stations2.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stationid</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[stationid (stations2.csv)]</local-name>
+            <parent-name>[stations2.csv]</parent-name>
+            <remote-alias>stationid</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalendstation</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[totalendstation]</local-name>
+            <parent-name>[stations2.csv]</parent-name>
+            <remote-alias>totalendstation</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Stationid (Stations2.Csv)' datatype='integer' name='[stationid (stations2.csv)]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Stationid' datatype='integer' name='[stationid]' role='dimension' type='ordinal' />
+      <column caption='Totalendstation' datatype='integer' name='[totalendstation]' role='measure' type='quantitative' />
+      <column caption='Totalstartstation' datatype='integer' name='[totalstartstation]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.407018' measure-ordering='alphabetic' measure-percentage='0.592982' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Top 10 End Stations 2013-2018'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stations' name='federated.0ayu0080tcjub613olkjp0njmv0h' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ayu0080tcjub613olkjp0njmv0h'>
+            <column-instance column='[stationid]' derivation='None' name='[none:stationid:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Stationid' datatype='integer' name='[stationid]' role='dimension' type='ordinal' />
+            <column-instance column='[totalendstation]' derivation='Sum' name='[sum:totalendstation:qk]' pivot='key' type='quantitative' />
+            <column caption='Totalendstation' datatype='integer' name='[totalendstation]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:stationid:ok]' />
+              <groupfilter function='union'>
+                <groupfilter from='127' function='range' level='[none:stationid:ok]' to='284' />
+                <groupfilter from='318' function='range' level='[none:stationid:ok]' to='387' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='444' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='490' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='492' />
+                <groupfilter from='499' function='range' level='[none:stationid:ok]' to='514' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='520' />
+                <groupfilter from='523' function='range' level='[none:stationid:ok]' to='3267' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>519</bucket>
+              <bucket>497</bucket>
+              <bucket>435</bucket>
+              <bucket>426</bucket>
+              <bucket>293</bucket>
+              <bucket>402</bucket>
+              <bucket>285</bucket>
+              <bucket>521</bucket>
+              <bucket>459</bucket>
+              <bucket>477</bucket>
+              <bucket>127</bucket>
+              <bucket>151</bucket>
+              <bucket>168</bucket>
+              <bucket>281</bucket>
+              <bucket>284</bucket>
+              <bucket>318</bucket>
+              <bucket>327</bucket>
+              <bucket>358</bucket>
+              <bucket>368</bucket>
+              <bucket>379</bucket>
+              <bucket>380</bucket>
+              <bucket>382</bucket>
+              <bucket>387</bucket>
+              <bucket>444</bucket>
+              <bucket>490</bucket>
+              <bucket>492</bucket>
+              <bucket>499</bucket>
+              <bucket>504</bucket>
+              <bucket>514</bucket>
+              <bucket>520</bucket>
+              <bucket>523</bucket>
+              <bucket>537</bucket>
+              <bucket>2006</bucket>
+              <bucket>3183</bucket>
+              <bucket>3184</bucket>
+              <bucket>3185</bucket>
+              <bucket>3195</bucket>
+              <bucket>3202</bucket>
+              <bucket>3203</bucket>
+              <bucket>3211</bucket>
+              <bucket>3255</bucket>
+              <bucket>3263</bucket>
+              <bucket>3267</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0ayu0080tcjub613olkjp0njmv0h].[sum:totalendstation:qk]</rows>
+        <cols>[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]</cols>
+      </table>
+      <simple-id uuid='{EED4FE06-4BB9-4701-931F-B292FFB7D7CE}' />
+    </worksheet>
+    <worksheet name='Top 10 Start Stations 2013-2018'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='stations' name='federated.0ayu0080tcjub613olkjp0njmv0h' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ayu0080tcjub613olkjp0njmv0h'>
+            <column-instance column='[stationid]' derivation='None' name='[none:stationid:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Stationid' datatype='integer' name='[stationid]' role='dimension' type='ordinal' />
+            <column-instance column='[totalstartstation]' derivation='Sum' name='[sum:totalstartstation:qk]' pivot='key' type='quantitative' />
+            <column caption='Totalstartstation' datatype='integer' name='[totalstartstation]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:stationid:ok]' />
+              <groupfilter function='union'>
+                <groupfilter from='127' function='range' level='[none:stationid:ok]' to='284' />
+                <groupfilter from='318' function='range' level='[none:stationid:ok]' to='387' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='444' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='477' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='492' />
+                <groupfilter from='499' function='range' level='[none:stationid:ok]' to='517' />
+                <groupfilter function='member' level='[none:stationid:ok]' member='520' />
+                <groupfilter from='523' function='range' level='[none:stationid:ok]' to='3269' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>519</bucket>
+              <bucket>497</bucket>
+              <bucket>435</bucket>
+              <bucket>426</bucket>
+              <bucket>402</bucket>
+              <bucket>293</bucket>
+              <bucket>285</bucket>
+              <bucket>521</bucket>
+              <bucket>490</bucket>
+              <bucket>459</bucket>
+              <bucket>127</bucket>
+              <bucket>151</bucket>
+              <bucket>168</bucket>
+              <bucket>281</bucket>
+              <bucket>284</bucket>
+              <bucket>318</bucket>
+              <bucket>327</bucket>
+              <bucket>358</bucket>
+              <bucket>359</bucket>
+              <bucket>368</bucket>
+              <bucket>379</bucket>
+              <bucket>380</bucket>
+              <bucket>382</bucket>
+              <bucket>387</bucket>
+              <bucket>444</bucket>
+              <bucket>477</bucket>
+              <bucket>492</bucket>
+              <bucket>499</bucket>
+              <bucket>504</bucket>
+              <bucket>514</bucket>
+              <bucket>517</bucket>
+              <bucket>520</bucket>
+              <bucket>523</bucket>
+              <bucket>528</bucket>
+              <bucket>529</bucket>
+              <bucket>537</bucket>
+              <bucket>2006</bucket>
+              <bucket>3168</bucket>
+              <bucket>3183</bucket>
+              <bucket>3184</bucket>
+              <bucket>3185</bucket>
+              <bucket>3195</bucket>
+              <bucket>3202</bucket>
+              <bucket>3203</bucket>
+              <bucket>3211</bucket>
+              <bucket>3213</bucket>
+              <bucket>3255</bucket>
+              <bucket>3263</bucket>
+              <bucket>3267</bucket>
+              <bucket>3269</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0ayu0080tcjub613olkjp0njmv0h].[sum:totalstartstation:qk]</rows>
+        <cols>[federated.0ayu0080tcjub613olkjp0njmv0h].[none:stationid:ok]</cols>
+      </table>
+      <simple-id uuid='{661B63CD-3552-4C71-A461-0B3535DB0809}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Top 10 Start Stations 2013-2018'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D8969378-02A8-4B12-96CE-1F232A52B97A}' />
+    </window>
+    <window class='worksheet' name='Top 10 End Stations 2013-2018'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{79B7C3D9-BC80-4ABE-9987-61BF7831FC06}' />
+    </window>
+  </windows>
+</workbook>
